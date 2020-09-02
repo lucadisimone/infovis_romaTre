@@ -1,0 +1,18 @@
+[
+  {
+    "x": 300,
+    "y": 250,
+    "topSx": 5,
+    "topDx": 30,
+    "bottomSx": 20,
+    "bottomDx": 10
+  },
+  {
+    "x": 800,
+    "y": 250,
+    "topSx": 50,
+    "topDx": 40,
+    "bottomSx": 30,
+    "bottomDx": 20
+  }
+]
