@@ -45,7 +45,7 @@ function drawClover(data, i) {
   let offset = 40
   let clover = svg.append('g')
     .attr('id', 'clover' + i)
-    .attr('class', 'clover')
+    //.attr('class', 'clover')
     .attr('x', data[0].x)
     .attr('y', data[0].y)
 
@@ -102,7 +102,7 @@ function drawClover(data, i) {
     .style('fill', '#008000')
 
     //disegno il gambo
-  // clover.selectAll('clover.gambo')
+  // clover.selectAll('.gambo')
   // .data(data)
   // .enter()
   // .append('path')
@@ -128,13 +128,13 @@ function drawClover(data, i) {
   // X e TOPSX
   var moveXtopSx = function () {
     var topSx = d3.select(this).attr('r');
+    let h = d3.selectAll('.topSx')
     let g = d3.selectAll('g');
     let value = topSxRange(topSx);
     let sum = d3.sum([value,value])
     
     // aggiorna la grandezza (x) della foglia in alto a sinistra
-    d3.selectAll('.topSx')
-      .transition().duration(updateTime)
+    h.transition().duration(updateTime)
       .attr('r', sum)
 
     // aggiorna la posizione x della foglia in alto a sinistra
@@ -142,24 +142,46 @@ function drawClover(data, i) {
       .attr('transform', 'translate(' + value + ',0)');
   }
 
+  // var moveXtopSx = function (data) {
+  //   var topSx = d3.select(this).attr('r');
+  //   let h = d3.selectAll('#clover'+i);
+  //   let g = d3.selectAll('#clover'+i);
+  //   let value = topSxRange(topSx);
+  //   let sum = d3.sum([value,value])
+    
+  //   // aggiorna la grandezza (x) della foglia in alto a sinistra
+  //   for (var i = 0; i < data.length; i++) {
+  //     h.transition().duration(updateTime)
+  //       .attr('r', sum)
+  //       console.log(h)
+  //   }
+
+  //   // aggiorna la posizione x della foglia in alto a sinistra
+  //   for (var i = 0; i < data.length; i++) {
+  //     g.transition().duration(updateTime)
+  //       .attr('transform', 'translate(' + value + ',0)');
+  //       console.log(g)
+  //   }
+  // }
+
   // Y e TOPSX
   var moveYtopSx = function () {
     // disabilita il comportamento di default del click destro del mouse
     d3.event.preventDefault();
 
     var topSx = d3.select(this).attr('r');
+    let h = d3.selectAll('.topSx')
     let g = d3.selectAll('g');
     let value = topSxRange(topSx);
     let sum = d3.sum([value,value])
 
     //aggiorna la grandezza (y) della foglia in alto a sinistra
-    d3.selectAll('.topSx')
-      .transition().duration(updateTime)
+    h.transition().duration(updateTime)
       .attr('r', sum)
 
     // aggiorna la posizione y della foglia in alto a sinistra
     g.transition().duration(updateTime)
-      .attr('transform', 'translate(' + '0,' + value + ')');
+      .attr('transform', 'translate(0,'+value+')');
   }
 
 /*------------------------------------------------------------------------*/
@@ -167,14 +189,14 @@ function drawClover(data, i) {
   // X e TOPDX
   var moveXtopDx = function () {
     var topDx = d3.select(this).attr('r');
+    let h = d3.selectAll('.topDx')
     let g = d3.selectAll('g');
-    let x = g.attr('x');
     let value = topDxRange(topDx);
+    let sum = d3.sum([value,value])
 
     //aggiorna la grandezza (x) della foglia in alto a destra
-    d3.selectAll('.topDx')
-      .transition().duration(updateTime)
-      .attr('r', topDxRange(x));
+    h.transition().duration(updateTime)
+      .attr('r', sum);
 
     // aggiorna la posizione x della foglia in alto a destra
     g.transition().duration(updateTime)
@@ -187,14 +209,14 @@ function drawClover(data, i) {
     d3.event.preventDefault();
 
     var topDx = d3.select(this).attr('r');
+    let h = d3.selectAll('.topDx')
     let g = d3.selectAll('g');
-    let y = g.attr('y');
     let value = topDxRange(topDx);
+    let sum = d3.sum([value,value])
 
     //aggiorna la grandezza (y) della foglia in alto a destra
-    d3.selectAll('.topDx')
-      .transition().duration(updateTime)
-      .attr('r', topDxRange(y));
+    h.transition().duration(updateTime)
+      .attr('r', sum);
 
     // aggiorna la posizione y della foglia in alto a destra
     g.transition().duration(updateTime)
@@ -206,14 +228,14 @@ function drawClover(data, i) {
   // X e BOTTOMSX
   var moveXbottomSx = function () {
     var bottomSx = d3.select(this).attr('r');
+    let h = d3.selectAll('.bottomSx')
     let g = d3.selectAll('g');
-    let x = g.attr('x');
     let value = bottomSxRange(bottomSx);
+    let sum = d3.sum([value,value])
 
     //aggiorna la grandezza (x) della foglia in basso a sinistra
-    d3.selectAll('.bottomSx')
-      .transition().duration(updateTime)
-      .attr('r', bottomSxRange(x));
+    h.transition().duration(updateTime)
+      .attr('r', sum);
 
     // aggiorna la posizione x della foglia in basso a sinistra
     g.transition().duration(updateTime)
@@ -226,14 +248,14 @@ function drawClover(data, i) {
     d3.event.preventDefault();
 
     var bottomSx = d3.select(this).attr('r');
+    let h = d3.selectAll('.bottomSx')
     let g = d3.selectAll('g');
-    let y = g.attr('y');
     let value = bottomSxRange(bottomSx);
+    let sum = d3.sum([value,value])
 
     //aggiorna la grandezza (y) della foglia in basso a sinistra
-    d3.selectAll('.bottomSx')
-      .transition().duration(updateTime)
-      .attr('r', bottomSxRange(y));
+    h.transition().duration(updateTime)
+      .attr('r', sum);
 
     //aggiorna la posizione y della foglia in basso a sinistra
     g.transition().duration(updateTime)
@@ -246,13 +268,13 @@ function drawClover(data, i) {
   var moveXbottomDx = function () {
     var bottomDx = d3.select(this).attr('r');
     let g = d3.selectAll('g');
-    let x = g.attr('x');
+    let = d3.selectAll('.bottomDx')
     let value = bottomDxRange(bottomDx);
+    let sum = d3.sum([value,value])
     
     //aggiorna la grandezza (x) della foglia in basso a destra
-    d3.selectAll('.bottomDx')
-      .transition().duration(updateTime)
-      .attr('r', bottomDxRange(x));
+    h.transition().duration(updateTime)
+      .attr('r', sum);
 
     // aggiorna la posizione x della foglia in basso a destra
     g.transition().duration(updateTime)
@@ -266,13 +288,13 @@ function drawClover(data, i) {
 
     var bottomDx = d3.select(this).attr('r');
     let g = d3.selectAll('g');
-    let y = g.attr('y');
+    let = d3.selectAll('.bottomDx')
     let value = bottomDxRange(bottomDx);
+    let sum = d3.sum([value,value])
 
     //aggiorna la grandezza (y) della foglia in basso a destra
-    d3.selectAll('.bottomDx')
-      .transition().duration(updateTime)
-      .attr('r', bottomDxRange(y));
+    h.transition().duration(updateTime)
+      .attr('r', sum);
 
     // aggiorna la posizione y della foglia in basso a destra
     g.transition().duration(updateTime)
