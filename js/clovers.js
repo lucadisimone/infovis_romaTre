@@ -4,14 +4,6 @@ var width = d3.select('body').node().getBoundingClientRect().width;
 var height = 600;
 var updateTime = 1800;
 
-// definizione dei domini e delle scalature per le variabili del dataset
-// var xRange = d3.scaleLinear().domain([0, 100]).range([margin.left, width - margin.right]);
-// var yRange = d3.scaleLinear().domain([0, 100]).range([margin.top, height - margin.bottom]);
-// var topSxRange = d3.scaleLinear().domain([1, 100]).range([1, 100]);
-// var topDxRange = d3.scaleLinear().domain([1, 100]).range([1, 100]);
-// var bottomSxRange = d3.scaleLinear().domain([1, 100]).range([1, 100]);
-// var bottomDxRange = d3.scaleLinear().domain([1, 100]).range([1, 100]);
-
 // carica i dati del dataset e associo le funzioni ai click destro e sinistro del mouse
 d3.json('data/dataset.json')
   .then(function (data) {
