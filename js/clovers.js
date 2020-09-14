@@ -4,6 +4,13 @@ var width = d3.select('body').node().getBoundingClientRect().width;
 var height = 600;
 var updateTime = 1800;
 
+var xRange = d3.scaleLinear().domain([0, 1000]).range([margin.left, width - margin.right]);
+var yRange = d3.scaleLinear().domain([0, 1000]).range([margin.top, height - margin.bottom]);
+var topSxRange = d3.scaleLinear().domain([10, 50]).range([20, 30]);
+var topDxRange = d3.scaleLinear().domain([10, 50]).range([20, 30]);
+var bottomSxRange = d3.scaleLinear().domain([10, 50]).range([20, 30]);
+var bottomDxRange = d3.scaleLinear().domain([10, 50]).range([20, 30]);
+
 // carica i dati del dataset e associo le funzioni ai click destro e sinistro del mouse
 d3.json('data/dataset.json')
   .then(function (data) {
@@ -138,6 +145,7 @@ var moveXtopSx = function (data,i) {
       return 'translate('+ x + ','+ y + ') rotate(225) scale('+element.topSx * 0.013+')';
   })
 
+
   // aggiorna la posizione x della foglia in alto a sinistra
   j.transition().duration(updateTime)
     .attr('transform', function (d, i) {
@@ -147,6 +155,7 @@ var moveXtopSx = function (data,i) {
       element = JSON.parse(elem.getAttribute("data"))
       return 'translate(' + d3.sum([element.topSx, x]) + ',' + y + ')';
     })
+    console.log(d3.event)
 }
 
 // Y e TOPSX
