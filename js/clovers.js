@@ -125,26 +125,14 @@ function drawClover(data, i) {
     .style('fill', '#008000')
 }
 
-
 /**********************************************************
  * Gestione degli eventi
  **********************************************************/
 
 // X e TOPSX
 var moveXtopSx = function (data,i) { 
-  let h = d3.selectAll(".topSx")
+  
   let j = d3.selectAll("g")
-
-  //aggiorna la grandezza (x) della foglia in alto a sinistra
-  h.transition().duration(updateTime)
-    .attr('transform', function (d, i) {
-      elem = j["_groups"]["0"][i]
-      x = parseInt(elem.getAttribute("x"))
-      y = parseInt(elem.getAttribute("y"))
-      element = JSON.parse(elem.getAttribute("data"))
-      return 'translate('+ x + ','+ y + ') rotate(225) scale('+element.topSx * 0.013+')';
-  })
-
 
   // aggiorna la posizione x della foglia in alto a sinistra
   j.transition().duration(updateTime)
@@ -163,19 +151,7 @@ var moveYtopSx = function (data,i) {
   // disabilita il comportamento di default del click destro del mouse
   d3.event.preventDefault();
 
-  let h = d3.selectAll(".topSx")
   let j = d3.selectAll("g")
-
-  //aggiorna la grandezza (x) della foglia in alto a sinistra
-  h.transition().duration(updateTime)
-  //.attr('transform', 'translate(' + data[0].x + ',' + data[0].y + ') rotate(225) scale(' + data[0].topSx * 0.01 + ')')
-    .attr('transform', function (d, i) {
-      elem = j["_groups"]["0"][i]
-      x = parseInt(elem.getAttribute("x"))
-      y = parseInt(elem.getAttribute("y"))
-      element = JSON.parse(elem.getAttribute("data"))
-      return 'translate('+ x + ','+ y + ') rotate(225) scale('+element.topSx * 0.013+')';
-  })
 
   // aggiorna la posizione x della foglia in alto a sinistra
   j.transition().duration(updateTime)
@@ -192,18 +168,8 @@ var moveYtopSx = function (data,i) {
 
 // X e TOPDX
 var moveXtopDx = function (data,i) {
-  let h = d3.selectAll(".topDx")
-  let j = d3.selectAll("g")
 
-  //aggiorna la grandezza (x) della foglia in alto a destra
-  h.transition().duration(updateTime)
-    .attr('transform', function (d, i) {
-      elem = j["_groups"]["0"][i]
-      x = parseInt(elem.getAttribute("x"))
-      y = parseInt(elem.getAttribute("y"))
-      element = JSON.parse(elem.getAttribute("data"))
-      return 'translate('+ x + ','+ y + ') rotate(315) scale('+element.topDx * 0.013+')';
-  })
+  let j = d3.selectAll("g")
 
   // aggiorna la posizione x della foglia in alto a destra
   j.transition().duration(updateTime)
@@ -221,19 +187,7 @@ var moveYtopDx = function (data,i) {
   // disabilita il comportamento di default del click destro del mouse
   d3.event.preventDefault();
 
-  let h = d3.selectAll(".topDx")
   let j = d3.selectAll("g")
-
-  //aggiorna la grandezza (x) della foglia in alto a destra
-  h.transition().duration(updateTime)
-  //.attr('transform', 'translate(' + data[0].x + ',' + data[0].y + ') rotate(225) scale(' + data[0].topSx * 0.01 + ')')
-    .attr('transform', function (d, i) {
-      elem = j["_groups"]["0"][i]
-      x = parseInt(elem.getAttribute("x"))
-      y = parseInt(elem.getAttribute("y"))
-      element = JSON.parse(elem.getAttribute("data"))
-      return 'translate('+ x + ','+ y + ') rotate(315) scale('+element.topDx * 0.013+')';
-  })
 
   // aggiorna la posizione x della foglia in alto a destra
   j.transition().duration(updateTime)
@@ -250,18 +204,8 @@ var moveYtopDx = function (data,i) {
 
 // X e BOTTOMSX
 var moveXbottomSx = function (data,i) {
-  let h = d3.selectAll(".bottomSx")
-  let j = d3.selectAll("g")
 
-  //aggiorna la grandezza (x) della foglia in basso a sinistra
-  h.transition().duration(updateTime)
-    .attr('transform', function (d, i) {
-      elem = j["_groups"]["0"][i]
-      x = parseInt(elem.getAttribute("x"))
-      y = parseInt(elem.getAttribute("y"))
-      element = JSON.parse(elem.getAttribute("data"))
-      return 'translate('+ x + ','+ y + ') rotate(135) scale('+element.bottomSx * 0.013+')';
-  })
+  let j = d3.selectAll("g")
 
   // aggiorna la posizione x della foglia in basso a sinistra
   j.transition().duration(updateTime)
@@ -279,19 +223,7 @@ var moveYbottomSx = function (data,i) {
   // disabilita il comportamento di default del click destro del mouse
   d3.event.preventDefault();
 
-  let h = d3.selectAll(".bottomSx")
   let j = d3.selectAll("g")
-
-  //aggiorna la grandezza (x) della foglia in basso a sinistra
-  h.transition().duration(updateTime)
-  //.attr('transform', 'translate(' + data[0].x + ',' + data[0].y + ') rotate(225) scale(' + data[0].topSx * 0.01 + ')')
-    .attr('transform', function (d, i) {
-      elem = j["_groups"]["0"][i]
-      x = parseInt(elem.getAttribute("x"))
-      y = parseInt(elem.getAttribute("y"))
-      element = JSON.parse(elem.getAttribute("data"))
-      return 'translate('+ x + ','+ y + ') rotate(135) scale('+element.bottomSx * 0.013+')';
-  })
 
   // aggiorna la posizione x della foglia in basso a sinistra
   j.transition().duration(updateTime)
@@ -307,19 +239,9 @@ var moveYbottomSx = function (data,i) {
 /*--------------------------------------------------------------------------*/
 
 // X e BOTTOMDX
-var moveXbottomDx = function () {
-  let h = d3.selectAll(".bottomDx")
-  let j = d3.selectAll("g")
+var moveXbottomDx = function (data,i) {
 
-  //aggiorna la grandezza (x) della foglia in basso a destra
-  h.transition().duration(updateTime)
-    .attr('transform', function (d, i) {
-      elem = j["_groups"]["0"][i]
-      x = parseInt(elem.getAttribute("x"))
-      y = parseInt(elem.getAttribute("y"))
-      element = JSON.parse(elem.getAttribute("data"))
-      return 'translate('+ x + ','+ y + ') rotate(45) scale('+element.bottomDx * 0.013+')';
-  })
+  let j = d3.selectAll("g")
 
   // aggiorna la posizione x della foglia in basso a destra
   j.transition().duration(updateTime)
@@ -333,23 +255,11 @@ var moveXbottomDx = function () {
 }
 
 // Y e BOTTOMDX
-var moveYbottomDx = function () {
+var moveYbottomDx = function (data,i) {
   // disabilita il comportamento di default del click destro del mouse
   d3.event.preventDefault();
 
-  let h = d3.selectAll(".bottomDx")
   let j = d3.selectAll("g")
-
-  //aggiorna la grandezza (x) della foglia in basso a destra
-  h.transition().duration(updateTime)
-  //.attr('transform', 'translate(' + data[0].x + ',' + data[0].y + ') rotate(225) scale(' + data[0].topSx * 0.01 + ')')
-    .attr('transform', function (d, i) {
-      elem = j["_groups"]["0"][i]
-      x = parseInt(elem.getAttribute("x"))
-      y = parseInt(elem.getAttribute("y"))
-      element = JSON.parse(elem.getAttribute("data"))
-      return 'translate('+ x + ','+ y + ') rotate(45) scale('+element.bottomDx * 0.013+')';
-  })
 
   // aggiorna la posizione x della foglia in basso a destra
   j.transition().duration(updateTime)
